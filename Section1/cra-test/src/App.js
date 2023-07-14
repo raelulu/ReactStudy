@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
-import data from "./data.json";
+import SmallImg from "./imgSmall.jpg";
+import BigImg from "./imgBig.jpg";
 
 function App() {
   function onClick() {
@@ -12,6 +13,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <img src={BigImg} className="App-logo" alt="logo" />
+        <img src={SmallImg} className="App-logo" alt="logo" />
         <button onClick={onClick}>데이터 보여주세요</button>
         <p>hello!</p>
         <a
