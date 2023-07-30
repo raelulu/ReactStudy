@@ -15,3 +15,15 @@ export default function App() {
     </div>
   );
 }
+
+// useEffect(() => {
+//   window.addEventListener('click', onClick);
+//   return () => window.removeEventListener('click', onClick);
+// });
+
+// function onClick() {
+//   ReactDOM.unstable_batchedUpdates(() => {
+//     setCount(v => v + 1);
+//     setCount(v => v + 1);
+//   });
+// }
