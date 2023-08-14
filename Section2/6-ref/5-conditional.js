@@ -10,9 +10,7 @@ export default function App() {
       <button onClick={() => setShowText(!showText)}>
         텍스트 보이기/가리기
       </button>
-      <button onClick={() => inputRef.current && inputRef.current.focus()}>
-        텍스트로 이동
-      </button>
+      <button onClick={() => inputRef.current.focus()}>텍스트로 이동</button>
     </div>
   );
 }
