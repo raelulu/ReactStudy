@@ -1,7 +1,7 @@
-import './App.css';
+import { useState } from 'react';
 import styled from '@emotion/styled';
-import { Button } from 'components/Button';
-import { Title } from 'components/Title';
+import { DataView } from 'components/DataView';
+import { InputContainer } from 'components/InputContainer';
 
 const Container = styled.div`
   height: 100vh;
@@ -13,10 +13,20 @@ const Container = styled.div`
 `;
 
 function App() {
+  const [toDoList, setToDoList] = useState(['리액트 공부하기', '운동하기', '책 읽기']);
+
+  const onDelete = (todo: string) => {
+    setToDoList(toDoList.filter((item) => item !== todo));
+  };
+
+  const onAdd = (toDo: string) => {
+    setToDoList([...toDoList, toDo]);
+  };
+
   return (
     <Container>
-      <Title label="할 일 목록" />
-      <Button />
+      <DataView toDoList={toDoList} onDelete={onDelete} />
+      <InputContainer onAdd={onAdd} />
     </Container>
   );
 }
