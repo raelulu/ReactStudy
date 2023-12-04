@@ -21,7 +21,7 @@ export const DataView = ({ toDoList, onDelete }: Props) => {
   return (
     <Container>
       <Title label="할 일 목록" />
-      <ToDoList toDoList={toDoList} onDelete={onDelete} />
+      <ToDoList />
     </Container>
   );
 };
