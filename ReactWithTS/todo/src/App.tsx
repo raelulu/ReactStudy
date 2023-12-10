@@ -27,8 +27,8 @@ function App() {
   return (
     <Container>
       <ToDoListContextProvider>
-        <DataView />
-        <InputContainer />
+        <DataView toDoList={toDoList} onDelete={onDelete} />
+        <InputContainer onAdd={onAdd} />
       </ToDoListContextProvider>
     </Container>
   );

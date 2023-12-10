@@ -43,7 +43,7 @@ const InputContainer = styled.div`
 `;
 
 interface Props {
-  readonly onClose: () => void;
+  readonly onClose: (toDo: string) => void;
 }
 
 export const ToDoInput = ({ onClose }: Props) => {
@@ -55,7 +55,7 @@ export const ToDoInput = ({ onClose }: Props) => {
 
     onAdd(toDo);
     setToDo('');
-    onClose();
+    onClose(toDo);
   };
 
   return (
