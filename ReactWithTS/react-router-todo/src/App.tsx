@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import styled from '@emotion/styled';
-import { DataView } from 'components/DataView';
-import { InputContainer } from 'components/InputContainer';
+import { DataView } from 'pages/DataView';
 import { ToDoListContextProvider } from 'contexts/ToDoList';
+import { ToDoInput } from 'pages/ToDoInput';
 
 const Container = styled.div`
   height: 100vh;
@@ -33,15 +33,8 @@ function App() {
     <Container>
       <ToDoListContextProvider>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <DataView toDoList={toDoList} onDelete={onDelete} />
-                <InputContainer onAdd={onAdd} />
-              </>
-            }
-          />
+          <Route path="/" element={<DataView toDoList={toDoList} onDelete={onDelete} />} />
+          <Route path="/add" element={<ToDoInput />} />
           <Route
             path="*"
             element={

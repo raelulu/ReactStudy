@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ToDoInput } from 'components/ToDoInput';
+import { ToDoInput } from 'pages/ToDoInput';
 import { ShowInputButton } from 'components/ShowInputButton';
 
 interface Props {

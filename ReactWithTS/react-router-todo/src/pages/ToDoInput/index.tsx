@@ -4,6 +4,8 @@ import { TextInput } from 'components/TextInput';
 import { Button } from 'components/Button';
 import { Title } from 'components/Title';
 import { ToDoListContext } from 'contexts/ToDoList';
+import { useNavigate } from 'react-router-dom';
+import { ShowInputButton } from 'components/ShowInputButton';
 
 const Container = styled.div`
   position: absolute;
@@ -43,10 +45,12 @@ const InputContainer = styled.div`
 `;
 
 interface Props {
-  readonly onClose: (toDo: string) => void;
+  readonly onClose: () => void;
 }
 
-export const ToDoInput = ({ onClose }: Props) => {
+export const ToDoInput = () => {
+  const navigate = useNavigate();
+
   const { onAdd } = useContext(ToDoListContext);
   const [toDo, setToDo] = useState('');
 
@@ -55,7 +59,7 @@ export const ToDoInput = ({ onClose }: Props) => {
 
     onAdd(toDo);
     setToDo('');
-    onClose(toDo);
+    navigate('/');
   };
 
   return (
@@ -68,6 +72,7 @@ export const ToDoInput = ({ onClose }: Props) => {
           <Button label="추가" color="#304ffe" onClick={onAddToDo} />
         </InputContainer>
       </Contents>
+      <ShowInputButton show={true} onClick={() => navigate('/')} />
     </Container>
   );
 };
