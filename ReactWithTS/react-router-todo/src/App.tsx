@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { DataView } from 'pages/DataView';
 import { ToDoListContextProvider } from 'contexts/ToDoList';
 import { ToDoInput } from 'pages/ToDoInput';
+import { Header } from 'components/Header';
 
 const Container = styled.div`
   height: 100vh;
@@ -32,6 +33,7 @@ function App() {
   return (
     <Container>
       <ToDoListContextProvider>
+        <Header />
         <Routes>
           <Route path="/" element={<DataView toDoList={toDoList} onDelete={onDelete} />} />
           <Route path="/add" element={<ToDoInput />} />
