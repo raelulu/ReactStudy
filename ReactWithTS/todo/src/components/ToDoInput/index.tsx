@@ -1,9 +1,8 @@
-import { useState, useContext } from 'react';
 import styled from '@emotion/styled';
-import { TextInput } from 'components/TextInput';
 import { Button } from 'components/Button';
 import { Title } from 'components/Title';
-import { ToDoListContext } from 'contexts/ToDoList';
+import { TextInput } from 'components/TextInput';
+import { useState } from 'react';
 
 const Container = styled.div`
   position: absolute;
@@ -17,18 +16,17 @@ const Container = styled.div`
 `;
 
 const Background = styled.div`
-  posotion: absoulute;
+  position: absolute;
   top: 0;
   left: 0;
-  bottom: 0:
+  bottom: 0;
   right: 0;
   background-color: rgb(0 0 0 / 75%);
-  `;
+`;
 
 const Contents = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-content: center;
   flex-direction: column;
   background-color: #ffffff;
   padding: 32px;
@@ -43,19 +41,17 @@ const InputContainer = styled.div`
 `;
 
 interface Props {
-  readonly onClose: (toDo: string) => void;
+  readonly onAdd: (toDo: string) => void;
 }
 
-export const ToDoInput = ({ onClose }: Props) => {
-  const { onAdd } = useContext(ToDoListContext);
+export const ToDoInput = ({ onAdd }: Props) => {
   const [toDo, setToDo] = useState('');
 
-  const onAddToDo = () => {
+  const onAddTodo = () => {
     if (toDo === '') return;
 
     onAdd(toDo);
     setToDo('');
-    onClose(toDo);
   };
 
   return (
@@ -65,7 +61,7 @@ export const ToDoInput = ({ onClose }: Props) => {
         <Title label="할 일 추가" />
         <InputContainer>
           <TextInput value={toDo} onChange={setToDo} />
-          <Button label="추가" color="#304ffe" onClick={onAddToDo} />
+          <Button label="추가" color="#304ffe" onClick={onAddTodo} />
         </InputContainer>
       </Contents>
     </Container>

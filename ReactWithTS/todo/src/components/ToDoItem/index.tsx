@@ -10,13 +10,13 @@ const Container = styled.div`
 
 const Label = styled.div`
   flex: 1;
-  font-size: 1.2rem;
+  font-size: 1.2 rem;
   margin-right: 16px;
 `;
 
 interface Props {
   readonly label: string;
-  readonly onDelete?: () => void;
+  readonly onDelete: () => void;
 }
 
 export const ToDoItem = ({ label, onDelete }: Props) => {

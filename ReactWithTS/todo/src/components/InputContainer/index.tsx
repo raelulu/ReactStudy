@@ -9,13 +9,14 @@ interface Props {
 export const InputContainer = ({ onAdd }: Props) => {
   const [showToDoInput, setShowToDoInput] = useState(false);
 
-  const onClose = (toDo: string) => {
+  const onAddToDo = (toDo: string) => {
     onAdd(toDo);
     setShowToDoInput(false);
   };
+
   return (
     <>
-      {showToDoInput && <ToDoInput onClose={onClose} />}
+      {showToDoInput && <ToDoInput onAdd={onAddToDo} />}
       <ShowInputButton show={showToDoInput} onClick={() => setShowToDoInput(!showToDoInput)} />
     </>
   );
