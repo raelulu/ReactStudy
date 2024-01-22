@@ -1,6 +1,11 @@
 import React from "react";
-import { Dropdown, Menu } from "antd";
+import { Dropdown, Menu, Button } from "antd";
 import { SettingFilled } from "@ant-design/icons";
+
+/**
+ * @param {object} param
+ * @param {() => void} param.logout
+ */
 
 export default function Settings({ logout }) {
   return (
@@ -13,7 +18,7 @@ export default function Settings({ logout }) {
       trigger={["click"]}
       placement="bottomRight"
     >
-      <Button shape='circle' icon={<SettingFilled />}>
+      <Button shape="circle" icon={<SettingFilled />} />
     </Dropdown>
   );
 }
