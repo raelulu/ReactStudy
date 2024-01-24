@@ -13,6 +13,7 @@ export default function Search() {
       dispatch(actions.fetchAutoComplete(value));
     }
   }
+  const autoCompletes = useSelector((state) => state.search.autoCompletes);
   function gotoUser(value) {}
   return (
     <AutoComplete
