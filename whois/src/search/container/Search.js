@@ -8,7 +8,7 @@ export default function Search() {
     <>
       <Row justify="end" style={{ padding: 20 }}>
         <Col>
-          <Settings />
+          <Settings logout={() => {}} />
         </Col>
       </Row>
       <Row justify="center" style={{ marginTop: 100 }}>
