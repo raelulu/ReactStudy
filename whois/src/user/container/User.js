@@ -19,6 +19,8 @@ export default function User({ match }) {
     dispatch(actions.fetchUser(name));
   }, [name]);
 
+  const isFetched = true;
+
   return (
     <>
       <Row justify="center">
@@ -37,6 +39,9 @@ export default function User({ match }) {
                   수정 내역
                 </Descriptions.Item>
               </Descriptions>
+            )}
+            {!user && isFetched && (
+              <Typography.Text>존재하지 않는 사용자 입니다.</Typography.Text>
             )}
           </PageHeader>
         </Col>
