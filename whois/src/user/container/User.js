@@ -26,7 +26,7 @@ export default function User({ match }) {
   const name = match.params.name;
   useEffect(() => {
     dispatch(actions.fetchUser(name));
-  }, [name]);
+  }, [dispatch, name]);
 
   const { isFetched, isSlow } = useFetchInfo(Types.FetchUser);
 
