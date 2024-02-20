@@ -1,13 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  Col,
-  Row,
-  PageHeader,
-  Descriptions,
-  Typography,
-  Space,
-  Spin,
-} from "antd";
+import { Col, Row, PageHeader, Descriptions, Typography } from "antd";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch, useSelector } from "react-redux";
 import { Types, actions } from "../state";
@@ -15,6 +7,7 @@ import useFetchInfo from "../../common/hook/useFetchInfo";
 import Department from "./Department";
 import TagList from "./TagList";
 import History from "../../common/component/History";
+import FetchLabel from "../component/FetchLabel";
 
 /**
  * @param {object} param
@@ -33,19 +26,16 @@ export default function User({ match }) {
     dispatch(actions.fetchUserHistory(name));
   }, [dispatch, name]);
 
-  const { isFetched, isSlow } = useFetchInfo(Types.FetchUser);
+  const { isFetched } = useFetchInfo(Types.FetchUser);
 
   return (
     <>
       <Row justify="center">
         <Col xs={24} md={20} lg={14}>
           <PageHeader
-            onBack={history.goBack}
+            onBack={() => history.push("/")}
             title={
-              <Space>
-                사용자 정보
-                {isSlow && <Spin size="small" />}
-              </Space>
+              <FetchLabel label="사용자 정보" actionType={Types.FetchUser} />
             }
           >
             {user && (
@@ -53,7 +43,16 @@ export default function User({ match }) {
                 <Descriptions.Item label="이름">
                   <Typography.Text>{user.name}</Typography.Text>
                 </Descriptions.Item>
-                <Descriptions.Item label="소속">
+                <Descriptions.Item
+                  label={
+                    <FetchLabel
+                      label="소속"
+                      actionType={Types.FetchUpdateUser}
+                      fetchKey="department"
+                    />
+                  }
+                >
+                  {" "}
                   <Department />
                 </Descriptions.Item>
                 <Descriptions.Item label="태그">
