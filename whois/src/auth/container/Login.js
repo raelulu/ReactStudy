@@ -5,8 +5,12 @@ import { Link } from "react-router-dom";
 import AuthLayout from "../component/AuthLayout";
 
 export default function Login() {
+  const dispatch = useDispatch();
+  function onFinish({ username, password }) {
+    dispatch(actions.fetchLogin(username, password));
+  }
   return (
-    <AuthLayout onFinish={() => {}}>
+    <AuthLayout onFinish={onFinish}>
       <Form.Item
         name="username"
         rules={[{ required: true, message: "Please input your Username!" }]}
