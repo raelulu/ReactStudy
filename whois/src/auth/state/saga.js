@@ -17,6 +17,29 @@ function* fetchLogin({ name, password }) {
     yield put(actions.setUser(data.name));
   }
 }
+function* fetchSignup({ email }) {
+  const { isSuccess, data } = yield call(callApi, {
+    url: "/auth/signup",
+    method: "post",
+    data: {
+      email,
+    },
+  });
+
+  if (isSuccess && data) {
+    yield put(actions.setUser(data.name));
+  }
+}
+
+function* fetchUser() {
+  const { isSuccess, data } = yield call(callApi, {
+    url: "/auth/user",
+  });
+
+  if (isSuccess && data) {
+    yield put(actions.setUser(data.name));
+  }
+}
 
 export default function* () {
   yield all([
