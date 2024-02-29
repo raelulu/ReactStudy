@@ -55,9 +55,5 @@ export default function* () {
       Types.FetchUser,
       makeFetchSaga({ fetchSaga: fetchUser, canCache: false })
     ),
-    takeLeading(
-      Types.FetchLogout,
-      makeFetchSaga({ fetchSaga: fetchLogout, canCache: false })
-    ),
   ]);
 }
