@@ -4,8 +4,10 @@ import { Input, Button, Form } from "antd";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { actions } from "../state";
+import useBlockLoginUser from "../hook/useBlockLoginUser";
 
 export default function Signup() {
+  useBlockLoginUser();
   const dispatch = useDispatch();
   function onFinish({ name }) {
     const email = `${name}${EMAIL_SUFFIX}`;
